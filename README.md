@@ -1,0 +1,1 @@
+I practice and document my Machine Learning journey in this repo via jupyter notebooks. Want to practice developing basic ML models both from scratch and using popular packages like sci-kit learn, tensorflow, keras, etc.

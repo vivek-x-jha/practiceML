@@ -1,0 +1,10 @@
+Basketball
+
+The following data (X1, X2, X3, X4, X5) are for each player.
+X1 = height in feet
+X2 = weight in pounds
+X3 = percent of successful field goals (out of 100 attempted)
+X4 = percent of successful free throws (out of 100 attempted)
+X5 = average points scored per game
+Reference: The official NBA basketball Encyclopedia, Villard Books
+
