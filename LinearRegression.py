@@ -18,9 +18,9 @@ data = df.iloc[:, :-1]
 dummy_feature = pd.Series(np.ones(trainingSize), name='f0')
 
 X = pd.concat([dummy_feature, data], axis=1)
-print(X.tail())
 y = df['labels']
 thetas = np.random.rand(features + 1)
 
 y_hats = lambda X, thetas: np.matmul(X, thetas)
-print(y_hats(X, thetas).shape)
+
+
