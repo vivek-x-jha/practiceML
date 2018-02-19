@@ -23,26 +23,24 @@ X = pd.concat([dummy_column, df.drop(columns='labels')], axis=1)
 y = df['labels']
 thetas = np.random.rand(features + 1)
 
-y_hats = lambda X, thetas: np.matmul(X, thetas)
-cost = lambda X, y, thetas: np.mean((y_hats(X, thetas) - y) ** 2) / 2
-
-dJdtheta = lambda X, y, thetas, k: np.mean((y_hats(X, thetas) - y) * X.iloc[:, k])
-gradient = lambda X, y, thetas: np.array([dJdtheta(X, y, thetas, k) for k in range(X.shape[1])])
+cost = lambda thetas: np.mean((np.matmul(X, thetas) - y) ** 2) / 2
+dJdtheta = lambda thetas, k: np.mean((np.matmul(X, thetas) - y) * X.iloc[:, k])
+gradient = lambda thetas: np.array([dJdtheta(thetas, k) for k in range(X.shape[1])])
 
 # J(theta) before gradient descent
-print(cost(X, y, thetas))
+print(cost(thetas))
 
 # Perform gradient descent
-costs = [cost(X, y, thetas)]
+errors = [cost(thetas)]
 for _ in range(trainingSteps):
-	thetas -= learningRate * gradient(X, y, thetas)
-	costs.append(cost(X, y, thetas))
+	thetas -= learningRate * gradient(thetas)
+	errors.append(cost(thetas))
 
 # J(theta) after gradient descent
-print(cost(X, y, thetas))
+print(cost(thetas))
 
 # Plots Cost function as gradient descent runs
-plt.plot(costs)
+plt.plot(errors)
 plt.xlabel('Training Steps')
 plt.ylabel('Cost Function')
 plt.show()
