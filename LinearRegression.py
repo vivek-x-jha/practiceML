@@ -31,10 +31,10 @@ gradient = lambda thetas: np.array([dJdtheta(thetas, k) for k in range(X.shape[1
 print(cost(thetas))
 
 # Perform gradient descent
-errors = [cost(thetas)]
-for _ in range(trainingSteps):
-	thetas -= learningRate * gradient(thetas)
-	errors.append(cost(thetas))
+errors = np.zeros(trainingSteps)
+for step in range(trainingSteps):
+    thetas -= learningRate * gradient(thetas)
+    errors[step] = cost(thetas)
 
 # J(theta) after gradient descent
 print(cost(thetas))
