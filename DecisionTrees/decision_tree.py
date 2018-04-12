@@ -24,12 +24,14 @@ training_data = [
 
 # Column labels.
 # These are used only to print the tree.
-header = ["color", "diameter", "label"]
+header = ['color', 'diameter', 'label']
 
 
 def unique_vals(rows, col):
     """Find the unique values for a column in a dataset."""
-    return set([row[col] for row in rows])
+
+    vals = {row[col] for row in rows}
+    return vals
 
 #######
 # Demo:
@@ -57,7 +59,9 @@ def class_counts(rows):
 
 def is_numeric(value):
     """Test if a value is numeric."""
-    return isinstance(value, int) or isinstance(value, float)
+
+    isNum = isinstance(value, (int, float))
+    return isNum
 
 #######
 # Demo:
@@ -146,7 +150,7 @@ def gini(rows):
     impurity = 1
     for lbl in counts:
         prob_of_lbl = counts[lbl] / float(len(rows))
-        impurity -= prob_of_lbl**2
+        impurity -= prob_of_lbl ** 2
     return impurity
 
 
