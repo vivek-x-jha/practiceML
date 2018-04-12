@@ -23,7 +23,7 @@ X = pd.concat([dummy_column, df.drop(columns='labels')], axis=1)
 y = df['labels']
 thetas = np.random.rand(features + 1)
 
-cost = lambda thetas: np.mean((np.matmul(X, thetas) - y) ** 2) / 2
+cost = lambda thetas: 0.5 * np.mean((np.matmul(X, thetas) - y) ** 2)
 dJdtheta = lambda thetas, k: np.mean((np.matmul(X, thetas) - y) * X.iloc[:, k])
 gradient = lambda thetas: np.array([dJdtheta(thetas, k) for k in range(X.shape[1])])
 
