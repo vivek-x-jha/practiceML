@@ -46,9 +46,10 @@ def class_counts(rows):
     for row in rows:
         # in our dataset format, the label is always the last column
         label = row[-1]
-        if label not in counts:
+        try:
+            counts[label] += 1
+        except KeyError:
             counts[label] = 0
-        counts[label] += 1
     return counts
 
 #######
