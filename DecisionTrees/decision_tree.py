@@ -373,10 +373,10 @@ def classify(row, node):
 
 def print_leaf(counts):
     """A nicer way to print the predictions at a leaf."""
-    total = sum(counts.values()) * 1.0
-    probs = {}
-    for lbl in counts.keys():
-        probs[lbl] = str(int(counts[lbl] / total * 100)) + "%"
+    
+    total = float(sum(counts.values()))
+    probs = {lbl: f'{int(counts[lbl] / total * 100)}%' for lbl in count}
+    
     return probs
 
 
