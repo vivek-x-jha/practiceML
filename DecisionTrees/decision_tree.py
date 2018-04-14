@@ -96,11 +96,10 @@ class Question:
     def __repr__(self):
         # This is just a helper method to print
         # the question in a readable format.
-        condition = "=="
+        condition = '=='
         if is_numeric(self.value):
-            condition = ">="
-        return "Is %s %s %s?" % (
-            header[self.column], condition, str(self.value))
+            condition = '>='
+        return f'Is {header[self.column]} {condition} {self.value}'
 
 #######
 # Demo:
@@ -236,7 +235,7 @@ def find_best_split(rows):
 
     for col in range(n_features):  # for each feature
 
-        values = set([row[col] for row in rows])  # unique values in the column
+        values = {row[col] for row in rows}  # unique values in the column
 
         for val in values:  # for each value
 
@@ -286,10 +285,7 @@ class Decision_Node:
     This holds a reference to the question, and to the two child nodes.
     """
 
-    def __init__(self,
-                 question,
-                 true_branch,
-                 false_branch):
+    def __init__(self, question, true_branch, false_branch):
         self.question = question
         self.true_branch = true_branch
         self.false_branch = false_branch
