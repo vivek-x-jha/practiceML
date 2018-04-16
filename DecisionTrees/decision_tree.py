@@ -99,7 +99,8 @@ class Question:
         condition = '=='
         if is_numeric(self.value):
             condition = '>='
-        return f'Is {header[self.column]} {condition} {self.value}'
+        question = f'Is {header[self.column]} {condition} {self.value}'
+        return question
 
 #######
 # Demo:
