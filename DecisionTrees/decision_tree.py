@@ -376,7 +376,7 @@ def print_leaf(counts):
     """A nicer way to print the predictions at a leaf."""
     
     total = float(sum(counts.values()))
-    probs = {lbl: f'{int(counts[lbl] / total * 100)}%' for lbl in count}
+    probs = {lbl: f'{int(counts[lbl] / total * 100)}%' for lbl in counts}
     
     return probs
 
