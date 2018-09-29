@@ -19,7 +19,7 @@ training_data = [
     ['Yellow', 3, 'Apple'],
     ['Red', 1, 'Grape'],
     ['Red', 1, 'Grape'],
-    ['Yellow', 3, 'Lemon'],
+    ['Yellow', 3, 'Lemon']
 ]
 
 # Column labels.
